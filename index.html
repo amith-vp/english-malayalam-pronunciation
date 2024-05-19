@@ -1,0 +1,186 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="script.js"></script>
+
+  <style>
+    .unselectable {
+      user-select: none;
+        
+    }
+    label {
+      font-family: Arial, sans-serif; 
+    }
+    .sparkle {
+      animation: sparkle 1s infinite;
+      animation-fill-mode: forwards;
+      /* animation-iteration-count: 1.3; */
+    }
+    
+      @keyframes sparkle {
+          0% {
+              opacity: 0.5;
+          }
+          50% {
+              opacity: 1;
+          }
+          100% {
+              opacity: 0.5;
+          }
+      }
+    
+      .radio-inputs {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 0.5rem;
+    background-color: #EEE;
+    box-sizing: border-box;
+    box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
+    padding: 0.25rem;
+    width: 300px;
+    font-size: 14px;
+    }
+    
+    .radio-inputs .radio {
+    flex: 1 1 auto;
+    text-align: center;
+    }
+    
+    .radio-inputs .radio input {
+    display: none;
+    }
+    
+    .radio-inputs .radio .name {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    border: none;
+    padding: .5rem 0;
+    color: rgba(51, 65, 85, 1);
+    transition: all .15s ease-in-out;
+    }
+    
+    .radio-inputs .radio input:checked + .name {
+    background-color: #fff;
+    font-weight: 600;
+    }
+    
+    </style>
+</head>
+
+<main class="flex flex-col items-center w-full min-h-screen bg-gradient-to-br from-[#F0F4F8] to-[#D9E2EC] relative overflow-hidden">
+<div class="absolute top-0 left-0 flex flex-wrap justify-center items-center ">
+  <div class="text-[#102A43] text-4xl font-bold unselectable transform rotate-[-10deg] m-5 opacity-50 hover:opacity-100 transition-opacity duration-300 ">മ</div>
+  <div class="text-[#102A43] text-4xl font-bold unselectable transform rotate-[10deg] m-10 ml-10 mt-10 opacity-50 hover:opacity-100 transition-opacity duration-300 ">അ</div>
+  <div class="text-[#102A43] text-4xl font-bold unselectable transform rotate-[5deg] m-10 ml-15 mt-15 opacity-50 hover:opacity-100 transition-opacity duration-300 ">യ</div>
+  <div class="text-[#102A43] text-4xl font-bold unselectable transform rotate-[7deg] m-16 mr-10 mb-10 opacity-50 hover:opacity-100 transition-opacity duration-300 ">പ</div>
+  <div class="text-[#102A43] text-4xl font-bold unselectable transform rotate-[15deg] m-6 mr-15 mb-15 opacity-50 hover:opacity-100 transition-opacity duration-300 ">ര</div>
+  <div class="text-[#102A43] text-4xl font-bold unselectable transform rotate-[-8deg] m-12 ml-20 mt-20 opacity-50 hover:opacity-100 transition-opacity duration-300 ">ല</div>
+  <div class="text-[#102A43] text-4xl font-bold unselectable transform rotate-[12deg] m-8 ml-25 mt-25 opacity-50 hover:opacity-100 transition-opacity duration-300 ">വ</div>
+  <div class="text-[#102A43] text-4xl font-bold unselectable transform rotate-[-3deg] m-15 mr-20 mb-20 opacity-50 hover:opacity-100 transition-opacity duration-300 ">ന</div>
+  <div class="text-[#102A43] text-4xl font-bold unselectable transform rotate-[17deg] m-12 mr-25 mb-25 opacity-50 hover:text-green-500 transition-opacity duration-300 ">ഇ</div>
+  <div class="text-[#102A43] text-4xl font-bold unselectable transform rotate-[20deg] m-12 mr-30 mb-30 opacity-50 hover:opacity-100 transition-opacity duration-300 ">ഹ</div>
+  <div class="text-[#102A43] text-4xl font-bold unselectable transform rotate-[-15deg] m-12 mr-35 mb-35 opacity-50 hover:opacity-100 transition-opacity duration-300 ">ജ</div>
+  <div class="text-[#102A43] text-4xl font-bold unselectable transform rotate-[10deg] m-12 mr-40 mb-40 opacity-50 hover:opacity-100 transition-opacity duration-300 ">ക</div>
+  <div class="text-[#102A43] text-4xl font-bold unselectable transform rotate-[-5deg] m-12 mr-45 mb-45 opacity-50 hover:opacity-100 transition-opacity duration-300 ">ത</div>
+  <div class="text-[#102A43] text-4xl font-bold unselectable transform rotate-[22deg] m-12 mr-50 mb-50 opacity-50 hover:opacity-100 transition-opacity duration-300 ">ബ</div>
+  <div class="text-[#102A43] text-4xl font-bold unselectable transform rotate-[-18deg] m-12 mr-55 mb-55 opacity-50 hover:opacity-100 transition-opacity duration-300 ">ട</div>
+  <div class="text-[#102A43] text-4xl font-bold unselectable transform rotate-[14deg] m-12 mr-60 mb-60 opacity-50 hover:opacity-100 transition-opacity duration-300 ">സ</div>
+  <div class="text-[#102A43] text-4xl font-bold unselectable transform rotate-[-7deg] m-12 mr-65 mb-65 opacity-50 hover:opacity-100 transition-opacity duration-300 ">ഭ</div>
+
+  <div class="text-[#102A43] text-4xl font-bold unselectable transform rotate-[10deg] m-10 ml-0 mt-10 opacity-50 hover:opacity-100 transition-opacity duration-300 ">ഏ </div>
+  <div class="text-[#102A43] text-4xl font-bold unselectable transform rotate-[22deg] m-12 ml-20 mt-15 opacity-50 hover:opacity-100 transition-opacity duration-300 ">ഫ</div>
+  <div class="text-[#102A43] text-4xl font-bold unselectable transform rotate-[-18deg] m-12 ml-20 mt-8 opacity-50 hover:opacity-100 transition-opacity duration-300 ">ദ</div>
+  <div class="text-[#102A43] text-4xl font-bold unselectable transform rotate-[14deg] m-12 ml-20 mt-5 opacity-50 hover:opacity-100 transition-opacity duration-300 ">ധ</div>
+  <div class="text-[#102A43] text-4xl font-bold unselectable transform rotate-[10deg] m-12 ml-20 mt-10 opacity-50 hover:opacity-100 transition-opacity duration-300 ">ന</div>
+
+<div class="text-[#102A43] text-4xl font-bold unselectable transform rotate-[-5deg] m-12 ml-20 mt-18 opacity-50 hover:opacity-100 transition-opacity duration-300 ">പ</div>
+<div class="text-[#102A43] text-4xl font-bold unselectable transform rotate-[22deg] m-12 ml-20 mt-17 opacity-50 hover:opacity-100 transition-opacity duration-300 ">ജ</div>
+<div class="text-[#102A43] text-4xl font-bold unselectable transform rotate-[-18deg] m-12 ml-20 mt-15 opacity-50 hover:opacity-100 transition-opacity duration-300 ">ച</div>
+<div class="text-[#102A43] text-4xl font-bold unselectable transform rotate-[14deg] m-12 ml-20 mt-11 opacity-50 hover:opacity-100 transition-opacity duration-300 ">ഡ</div>
+</div>
+    <div class="w-full max-w-3xl px-4 py-8 relative z-10 " style="    pointer-events: none;      ">  
+      <div class="rounded bg-black/10 p-5 text-white backdrop-blur-sm">     
+      <h1 class="mb-4 text-2xl font-bold unselectable text-[#334E68] ">English - Malayalam Pronunciation</h1>
+      <p class="mb-6 text-[#334E68]">
+          Effortlessly convert English text to its pronunciation in മലയാളം.
+      </p>
+      <div class="relative" style="    pointer-events: auto;        ">
+        <textarea
+        class="flex min-h-[160px] text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full px-4 py-2 rounded-lg border-2 border-white/50 focus:outline-none focus:ring-2 focus:ring-[#CBD2D9] focus:border-transparent text-[#334E68] bg-transparent resize-none"
+        placeholder="Enter your text here..."
+          rows="5"
+        ></textarea>
+
+        <div class="absolute right-3 bottom-3 flex space-x-2">
+          <button id ="sample" class="relative inline-block h-10 w-10 cursor-pointer rounded-md bg-white shadow-lg shadow-black/20 transition-all hover:scale-105">
+            <div class="absolute inset-0 flex items-center justify-center transform-style-3d">
+              <div class="transform-3d">
+                <div class="h-2 w-2 rounded-full bg-red-500"></div>
+                <div class="h-2 w-2 rounded-full bg-red-500 ml-3"></div>
+              </div>
+            </div>
+          </button>
+          <button id="submit" class="cursor-pointer transition-all bg-blue-500 text-white px-6 py-2 rounded-lg
+          border-blue-600
+          border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px]
+          active:border-b-[2px] active:brightness-90 active:translate-y-[2px]">
+            Get Pronunciation
+          </button>
+        </div>
+        
+      </div>
+
+      </div>
+      <div class="mt-8 bg-black/10 rounded-lg p-4">
+        <h2 class="text-xl font-bold unselectable text-[#102A43] mb-4">Transliteration</h2>
+
+<div class="radio-inputs" style="pointer-events:auto">
+<label class="radio">
+  <input type="radio" name="radio" checked="">
+  <span class="name">US</span>
+</label>
+<label class="radio">
+  <input type="radio" name="radio">
+  <span class="name">UK</span>
+</label>
+</div>
+    
+        <div class="text-[#102A43]">
+        <div class="space-y-4">
+ 
+          <div>
+            <div class="bg-gray-100 p-4 rounded-md ">
+              <p id="pronunciation">ഐ വൊസ് ഡ്രിങ്കിങ് എ ബൊറ്റൽ ഒവ് വൊറ്റെ വിദ് ബ്രെഡ് ഒൻ ചൂസ്ഡെഇ മൊനിങ്</p>
+            </div>
+
+          </div>
+        </div>
+  </div>
+        <div id="output" class="mt-6 text-[#334E68]"></div>
+      </div>
+    </div>
+    <footer class="w-full bg-transparent text-gray-500 text-sm flex justify-between items-center px-4 fixed bottom-0">
+      <div>
+        Created by
+        <a class="hover:text-gray-300 transition-colors pb-0" href="https://amithv.xyz">
+          amithv.xyz
+        </a>
+      </div>
+      <div class="flex gap-4">
+        <a class="hover:text-gray-300 transition-colors pb-0" href="https://github.com/amith-vp/english-malayalam-pronunciation">
+          GitHub
+        </a>
+        <a class="hover:text-gray-300 transition-colors pb-0" href="https://buymeacoffee.com/amithv">
+          Buy me a coffee
+        </a>
+      </div>
+    </footer>
+  </main>
+
+
+
