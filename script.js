@@ -346,7 +346,31 @@ async function convertToIPA(englishSentence, dictionaryType) {
     return ipaSentence;
 }
 
+function toggleModal() {
+    document.getElementById('modal').classList.toggle('hidden')
+  }
 
+  function showToast(toastId) {
+    document.getElementById(toastId).classList.remove("opacity-0");
+    
+    setTimeout(hideToast.bind(null, toastId), 3000);
+  }
+  
+  function hideToast(toastId) {
+    document.getElementById(toastId).classList.add("opacity-0");
+  }
+  
+  function dismissWarning() {
+    localStorage.setItem("hideDemoWarning", true);
+  }
+  function copyToClipboard() {
+    const textToCopy = document.getElementById('pronunciation').innerText;
+    navigator.clipboard.writeText(textToCopy).then(function() {
+        showToast('copied-toast')
+    }, function(err) {
+        console.error('Could not copy text: ', err);
+    });
+}
 
 document.addEventListener('DOMContentLoaded',async (event) => {
 
@@ -356,6 +380,8 @@ document.addEventListener('DOMContentLoaded',async (event) => {
     const button = document.getElementById('submit');
     const textarea = document.querySelector('.relative textarea');
     const sampleButton = document.getElementById('sample');
+    const reportButton = document.getElementById('report');
+
     
     const pronunciationParagraph = document.getElementById('pronunciation');
 
@@ -430,5 +456,58 @@ document.addEventListener('DOMContentLoaded',async (event) => {
 
         textarea.value = randomSample;
     });
+
+    reportButton.addEventListener('click', () => {
+
+
+        let inputData = document.querySelector('.relative textarea').value;
+        let reason = document.getElementById('reason').value;
+        let outputData = document.getElementById('pronunciation').textContent;
+        let radio = document.querySelector('input[type="radio"]:checked').nextElementSibling.textContent;
+
+      
+const data = {
+    embeds: [{
+        title: "New Submission",
+        color: 3447003, 
+        fields: [
+            {
+                name: "Input",
+                value: inputData,
+                inline: false
+            },
+            {
+                name: "Output",
+                value: outputData,
+                inline: false
+            },
+            {
+                name: "Checkbox",
+                value: radio,
+                inline: false
+            },
+            {
+                name: "Reason",
+                value: reason,
+                inline: false
+            }
+        ]
+    }]
+};
+
+fetch('https://discord.com/api/webhooks/1243082443984994334/o-uzHfGQWXAT4-xSa-TL5vy3Ei-ELDLsDDHtY0ZVKkTnRCG1mxYE2TaAYfE9_GJdsLWQ', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+}).then(response => console.log('Success:', response))
+  .catch((error) => console.error('Error:', error));
+
+  toggleModal();
+  showToast('report-toast')
+
+});
+
 
 });
