@@ -1,4 +1,5 @@
 <head>
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-DWM29ZLXR8"></script>
   <script>
@@ -11,7 +12,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="script.js"></script>
+  <script src="/assets/script/script.js"></script>
   <title>Vakdhwani- English to Malayalam Pronunciation</title>
   <style>
     .unselectable {
@@ -81,6 +82,16 @@
       background-color: #fff;
       font-weight: 600;
     }
+    @font-face {
+        font-family: 'A10 Malayalam';
+        src: url('/assets/fonts/A10Malayalam-Regular.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    .malayalam-text {
+        font-family: 'A10 Malayalam', sans-serif;
+    }
   </style>
 </head>
 
@@ -88,9 +99,9 @@
 
   <main
     class="flex flex-col items-center w-full min-h-screen bg-gradient-to-br from-[#F0F4F8] to-[#D9E2EC] relative overflow-hidden">
-    <div class="absolute top-0 left-0 flex flex-wrap justify-center items-center ">
+    <div class=" absolute top-0 left-0 flex flex-wrap justify-center items-center ">
       <div
-        class="text-[#102A43] text-4xl font-bold unselectable transform rotate-[-10deg] m-5 opacity-50 hover:opacity-100 transition-opacity duration-300 ">
+       class="text-[#102A43] text-4xl font-bold unselectable transform rotate-[-10deg] m-5 opacity-50 hover:opacity-100 transition-opacity duration-300 ">
         മ</div>
       <div
         class="text-[#102A43] text-4xl font-bold unselectable transform rotate-[10deg] m-10 ml-10 mt-10 opacity-50 hover:opacity-100 transition-opacity duration-300 ">
@@ -172,10 +183,10 @@
     </div>
     <div class="w-full max-w-3xl px-4 py-8 relative z-10 " style="    pointer-events: none;      ">
       <div class="rounded bg-black/10 p-5 text-white backdrop-blur-sm">
-        <h1 class="mb-4 text-2xl font-bold unselectable text-[#334E68] ">വാക്ധ്വനി - English to Malayalam Pronunciation
+        <h1 class="mb-4 text-2xl font-bold unselectable text-[#334E68] "> വാക്ധ്വനി - English to Malayalam Pronunciation
         </h1>
         <p class="mb-6 text-[#334E68]">
-          Effortlessly convert English text to its pronunciation in മലയാളം.
+          Effortlessly convert English text to its pronunciation in<span class="malayalam-text"> മലയാളം.</span>
         </p>
         <div class="relative" style="    pointer-events: auto;        ">
           <textarea

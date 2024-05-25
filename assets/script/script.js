@@ -274,10 +274,10 @@ class Dictionary {
         let filePath;
         if (dictionaryType === 'UK') {
             cache = this._cacheUK;
-            filePath = 'en_UK.txt';
+            filePath = '/assets/dict/en_UK.txt';
         } else if (dictionaryType === 'US') {
             cache = this._cacheUS;
-            filePath = 'en_US.txt';
+            filePath = '/assets/dict/en_US.txt';
         } else {
             throw new Error('Invalid dictionary type');
         }
