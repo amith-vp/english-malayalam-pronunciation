@@ -45,8 +45,8 @@ const ipaToMalayalamMap = {
     'ɔ': 'ഒ',
     'ɤ': 'ഒ',
     'ɵ': 'ഒ',
-    'ɒ': 'ഒ', 
-    'œ': 'ഒ', 
+    'ɒ': 'ഒ',
+    'œ': 'ഒ',
     'oː': 'ഓ',
     'ɤː': 'ഓ',
     'ɵː': 'ഓ',
@@ -152,9 +152,9 @@ const ipaToMalayalamMap = {
     'ʄ': 'ജ്',
     'ɠ': 'ഗ്',
     'ʛ': 'ഗ്',
-    'ʘ': 'പ്', 
+    'ʘ': 'പ്',
     'ǀ': 'ത്',
-    'ǃ': 'റ്', 
+    'ǃ': 'റ്',
     'ǂ': 'ച്',
     'ǁ': 'ള്',
     'ɟ': 'ജ്',
@@ -164,10 +164,10 @@ const ipaToMalayalamMap = {
     'ʍ': 'വ്ഹ്',
     'ɹ': 'റ്',
 
-    'ˈ': '', 
-    'ˌ': '', 
+    'ˈ': '',
+    'ˌ': '',
 
-    'ˑ': '', 
+    'ˑ': '',
 
     '˥': '',
     '˦': '',
@@ -206,10 +206,10 @@ function ipaToMalayalam(ipaString) {
                 let nextNextChar = j < word.length - 2 ? word[j + 2] : '';
                 if (ipaToMalayalamMap.hasOwnProperty(ipaChar + nextChar + nextNextChar)) {
                     malayalamWord += ipaToMalayalamMap[ipaChar + nextChar + nextNextChar];
-                    j += 2; 
+                    j += 2;
                 } else if (ipaToMalayalamMap.hasOwnProperty(ipaChar + nextChar)) {
                     malayalamWord += ipaToMalayalamMap[ipaChar + nextChar];
-                    j++; 
+                    j++;
                 } else if (ipaToMalayalamMap.hasOwnProperty(ipaChar)) {
                     malayalamWord += ipaToMalayalamMap[ipaChar];
                 } else {
@@ -250,7 +250,7 @@ function replaceVowelCombinations(inputString) {
         'ല്': 'ൽ',
         'ള ്': 'ൾ',
         '(?<!റ്)റ്(?!റ)': 'ർ',
-        '(?<!റ)്റ(?!്റ)':  '്ര', // literrally spend 2 fkng day to fix this, when i fix  റ്റ് it affect ർ, when i fix ർ it affect റ്റ്, when i fix both it affect '്ര'
+        '(?<!റ)്റ(?!്റ)': '്ര', // literrally spend 2 fkng day to fix this, when i fix  റ്റ് it affect ർ, when i fix ർ it affect റ്റ്, when i fix both it affect '്ര'
     };
 
     let outputString = inputString;
@@ -348,31 +348,31 @@ async function convertToIPA(englishSentence, dictionaryType) {
 
 function toggleModal() {
     document.getElementById('modal').classList.toggle('hidden')
-  }
+}
 
-  function showToast(toastId) {
+function showToast(toastId) {
     document.getElementById(toastId).classList.remove("opacity-0");
-    
+
     setTimeout(hideToast.bind(null, toastId), 3000);
-  }
-  
-  function hideToast(toastId) {
+}
+
+function hideToast(toastId) {
     document.getElementById(toastId).classList.add("opacity-0");
-  }
-  
-  function dismissWarning() {
+}
+
+function dismissWarning() {
     localStorage.setItem("hideDemoWarning", true);
-  }
-  function copyToClipboard() {
+}
+function copyToClipboard() {
     const textToCopy = document.getElementById('pronunciation').innerText;
-    navigator.clipboard.writeText(textToCopy).then(function() {
+    navigator.clipboard.writeText(textToCopy).then(function () {
         showToast('copied-toast')
-    }, function(err) {
+    }, function (err) {
         console.error('Could not copy text: ', err);
     });
 }
 
-document.addEventListener('DOMContentLoaded',async (event) => {
+document.addEventListener('DOMContentLoaded', async (event) => {
 
 
     await dictionary.loadDictionary('UK');
@@ -382,7 +382,7 @@ document.addEventListener('DOMContentLoaded',async (event) => {
     const sampleButton = document.getElementById('sample');
     const reportButton = document.getElementById('report');
 
-    
+
     const pronunciationParagraph = document.getElementById('pronunciation');
 
     let result = {};
@@ -398,44 +398,45 @@ document.addEventListener('DOMContentLoaded',async (event) => {
             const delay = Math.random();
             letter.style.animationDelay = `${delay}s`;
             letter.classList.add('sparkle');
-    });
-
-    //About this intentional 1.3-second delay in the execution - its my way of saying, "hold up, those text sprinkles animation looks cool".
-    const animationPromise = new Promise(resolve => setTimeout(resolve, 1300));
-
-    Promise.all([animationPromise, ipaUKPromise, ipaUSPromise]).then(async ([_, ipaSentenceUK, ipaSentenceUS]) => {
-        letters.forEach(letter => {
-            letter.classList.remove('sparkle');
         });
 
-        const malayalamUK = replaceVowelCombinations(ipaToMalayalam(ipaSentenceUK));
-        const malayalamUS = replaceVowelCombinations(ipaToMalayalam(ipaSentenceUS));
+        //About this intentional 1.3-second delay in the execution - its my way of saying, "hold up, those text sprinkles animation looks cool".
+        const animationPromise = new Promise(resolve => setTimeout(resolve, 1300));
 
-        result = {
-            UK: malayalamUK,
-            US: malayalamUS
-        };
+        Promise.all([animationPromise, ipaUKPromise, ipaUSPromise]).then(async ([_, ipaSentenceUK, ipaSentenceUS]) => {
+            letters.forEach(letter => {
+                letter.classList.remove('sparkle');
+            });
 
-        let radios = document.querySelectorAll('.radio-inputs input[type="radio"]');
-        radios.forEach(radio => {
-            if (radio.checked && radio.nextElementSibling.textContent === 'US') {
+            const malayalamUK = replaceVowelCombinations(ipaToMalayalam(ipaSentenceUK));
+            const malayalamUS = replaceVowelCombinations(ipaToMalayalam(ipaSentenceUS));
+
+            result = {
+                UK: malayalamUK,
+                US: malayalamUS
+            };
+            let usRadio = document.querySelector('#us');
+            let ukRadio = document.querySelector('#uk');
+            if (usRadio.checked) {
                 pronunciationParagraph.textContent = result.US;
-            } else if (radio.checked && radio.nextElementSibling.textContent === 'UK') {
+            } else if (ukRadio.checked) {
                 pronunciationParagraph.textContent = result.UK;
             }
         });
     });
-});
-    let radios = document.querySelectorAll('.radio-inputs input[type="radio"]');
+    let usRadio = document.querySelector('#us');
+    let ukRadio = document.querySelector('#uk');
 
-    radios.forEach(radio => {
-        radio.addEventListener('change', () => {
-            if (radio.checked && radio.nextElementSibling.textContent === 'US') {
-                pronunciationParagraph.textContent = result.US
-            } else if (radio.checked && radio.nextElementSibling.textContent === 'UK') {
-                pronunciationParagraph.textContent = result.UK
-            }
-        });
+    usRadio.addEventListener('change', () => {
+        if (usRadio.checked) {
+            pronunciationParagraph.textContent = result.US;
+        }
+    });
+
+    ukRadio.addEventListener('change', () => {
+        if (ukRadio.checked) {
+            pronunciationParagraph.textContent = result.UK;
+        }
     });
     sampleButton.addEventListener('click', () => {
         const samples = [
@@ -451,7 +452,7 @@ document.addEventListener('DOMContentLoaded',async (event) => {
             "You need to be an adult to enter the club.",
             "They danced until the early hours of the morning.",
             "Would you like some tomato with your salad?"
-          ];
+        ];
         const randomSample = samples[Math.floor(Math.random() * samples.length)];
 
         textarea.value = randomSample;
@@ -465,49 +466,91 @@ document.addEventListener('DOMContentLoaded',async (event) => {
         let outputData = document.getElementById('pronunciation').textContent;
         let radio = document.querySelector('input[type="radio"]:checked').nextElementSibling.textContent;
 
-      
-const data = {
-    embeds: [{
-        title: "New Submission",
-        color: 3447003, 
-        fields: [
-            {
-                name: "Input",
-                value: inputData,
-                inline: false
-            },
-            {
-                name: "Output",
-                value: outputData,
-                inline: false
-            },
-            {
-                name: "Checkbox",
-                value: radio,
-                inline: false
-            },
-            {
-                name: "Reason",
-                value: reason,
-                inline: false
-            }
-        ]
-    }]
-};
 
-fetch('https://discord.com/api/webhooks/1243082443984994334/o-uzHfGQWXAT4-xSa-TL5vy3Ei-ELDLsDDHtY0ZVKkTnRCG1mxYE2TaAYfE9_GJdsLWQ', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data)
-}).then(response => console.log('Success:', response))
-  .catch((error) => console.error('Error:', error));
+        const data = {
+            embeds: [{
+                title: "New Submission",
+                color: 3447003,
+                fields: [
+                    {
+                        name: "Input",
+                        value: inputData,
+                        inline: false
+                    },
+                    {
+                        name: "Output",
+                        value: outputData,
+                        inline: false
+                    },
+                    {
+                        name: "Checkbox",
+                        value: radio,
+                        inline: false
+                    },
+                    {
+                        name: "Reason",
+                        value: reason,
+                        inline: false
+                    }
+                ]
+            }]
+        };
 
-  toggleModal();
-  showToast('report-toast')
+        fetch('https://discord.com/api/webhooks/1243082443984994334/o-uzHfGQWXAT4-xSa-TL5vy3Ei-ELDLsDDHtY0ZVKkTnRCG1mxYE2TaAYfE9_GJdsLWQ', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }).then(response => console.log('Success:', response))
+            .catch((error) => console.error('Error:', error));
+
+        toggleModal();
+        showToast('report-toast')
+
+    });
+
 
 });
 
+const storageKey = 'theme-preference';
 
+const onClick = () => {
+  theme.value = theme.value === 'light' ? 'dark' : 'light';
+  document.documentElement.classList.toggle('dark', theme.value === 'dark');
+  setPreference();
+};
+
+const getColorPreference = () => {
+  const storedPreference = localStorage.getItem(storageKey);
+  if (storedPreference) {
+    return storedPreference;
+  } else {
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+};
+
+const setPreference = () => {
+  localStorage.setItem(storageKey, theme.value);
+  reflectPreference();
+};
+
+const reflectPreference = () => {
+  document.documentElement.classList.toggle('dark', theme.value === 'dark');
+  document.firstElementChild.setAttribute('data-theme', theme.value);
+  document.querySelector('#theme-toggle')?.setAttribute('aria-label', theme.value === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+};
+
+const theme = {
+  value: getColorPreference(),
+};
+
+window.onload = () => {
+  reflectPreference();
+  document.querySelector('#theme-toggle').addEventListener('click', onClick);
+};
+
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', ({matches:isDark}) => {
+  theme.value = isDark ? 'dark' : 'light';
+  setPreference();
 });
