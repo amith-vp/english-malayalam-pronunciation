@@ -439,6 +439,32 @@ document.addEventListener('DOMContentLoaded', async (event) => {
         }
     });
     sampleButton.addEventListener('click', () => {
+        sampleButton.innerHTML = `
+        <div class="absolute inset-0 flex items-center justify-center">
+            <div class="h-2 w-2 rounded-full bg-red-500"></div>
+        </div>
+    `;
+
+    setTimeout(() => {
+        sampleButton.innerHTML = `
+        <div class="absolute inset-0 flex items-center justify-center">
+        <div class="absolute top-1 left-1 h-2 w-2 rounded-full bg-black"></div>
+        <div class="absolute bottom-1 right-1 h-2 w-2 rounded-full bg-black"></div>
+    </div>
+        `;
+    }, 200);
+    setTimeout(() => {
+        sampleButton.innerHTML = `
+            <div class="absolute inset-0 flex items-center justify-center">
+                <div class="absolute top-1 left-1 h-2 w-2 rounded-full bg-red-500"></div>
+                <div class="absolute top-1 right-1 h-2 w-2 rounded-full bg-red-500"></div>
+                <div class="absolute bottom-1 left-1 h-2 w-2 rounded-full bg-red-500"></div>
+                <div class="absolute bottom-1 right-1 h-2 w-2 rounded-full bg-red-500"></div>
+            </div>
+        `;
+    }, 400);
+   
+
         const samples = [
             "The schedule includes a tour of the laboratory and the library.",
             "Please put the trash in the bin next to the car.",
@@ -554,3 +580,4 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', ({m
   theme.value = isDark ? 'dark' : 'light';
   setPreference();
 });
+

@@ -135,17 +135,19 @@
 
 
             <button id="sample"
-              class="relative inline-block h-10 w-10 cursor-pointer rounded-md bg-white shadow-lg shadow-black/20 transition-all hover:scale-105">
-              <div class="absolute inset-0 flex items-center justify-center transform-style-3d">
-                <div class="transform-3d">
-                  <div class="h-2 w-2 rounded-full bg-red-500"></div>
-                  <div class="h-2 w-2 rounded-full bg-red-500 ml-3"></div>
-                </div>
-              </div>
+              class="relative inline-block h-10 w-10 cursor-pointer rounded-md bg-white shadow-lg shadow-black/20 transition-all">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="absolute top-1 left-1 h-2 w-2 rounded-full bg-red-500"></div>
+                <div class="absolute top-1 right-1 h-2 w-2 rounded-full bg-red-500"></div>
+                <div class="absolute bottom-1 left-1 h-2 w-2 rounded-full bg-red-500"></div>
+                <div class="absolute bottom-1 right-1 h-2 w-2 rounded-full bg-red-500"></div>
+            </div>
+ 
+            
             </button>
             <button id="submit" class="cursor-pointer transition-all bg-blue-500 text-white px-6 py-2 rounded-lg
           border-blue-600
-          border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px]
+          border-b-[4px] hover:brightness-110  
           active:border-b-[2px] active:brightness-90 active:translate-y-[2px]">
               Get Pronunciation
             </button>
